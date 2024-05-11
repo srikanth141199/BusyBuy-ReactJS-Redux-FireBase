@@ -1,8 +1,16 @@
-import './App.css';
+import { BrowserRouter } from "react-router-dom";
+import { CustomItemContext } from "./Context";
+import Navbar from "./components/Navbar/Navbar";
 
 function App() {
   return (
-    <>App</>
+    <>
+      <CustomItemContext>
+        <BrowserRouter>
+          <Navbar/>
+        </BrowserRouter>
+      </CustomItemContext>
+    </>
   );
 }
 
