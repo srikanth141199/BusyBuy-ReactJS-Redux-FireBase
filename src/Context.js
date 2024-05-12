@@ -15,6 +15,8 @@ function CustomItemContext({children}){
     const [amt, setAmt] = useState(5000);
     const [cartItems, setCartItems] = useState([]);
     const [totalAmt, setTotalAmt] = useState(0);
+    const [isMyorder, setIsMyOrder] = useState(false);
+    const [myorder, setMyOrder] = useState([])
 
     const handleSignin = ()=>{
         setSignIn(false);
@@ -28,7 +30,9 @@ function CustomItemContext({children}){
             handleSignin,
             amt, setAmt,
             cartItems, setCartItems,
-            totalAmt, setTotalAmt
+            totalAmt, setTotalAmt,
+            isMyorder, setIsMyOrder,
+            myorder, setMyOrder
         }}>
             {children}
         </ItemContext.Provider>
