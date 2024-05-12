@@ -13,6 +13,10 @@ function CustomItemContext({children}){
     const [password, setPassword] = useState("");
     const [signIn, setSignIn] = useState(false);
 
+    const handleSignin = ()=>{
+        setSignIn(false);
+    }
+
     return(
         <ItemContext.Provider value = {{
             email, setEmail,
