@@ -66,22 +66,26 @@ export default function Product(){
       </div>
       <div className="product">
         <Aside applyFilters={applyFilters} />
+        <div className="leftMargin">
+
+        
         {loading ? ( 
           <div className="spinner">
           <PacmanLoader color="#41cdece3"  size={100} loading = {loading}/>
           </div>
         ) : (
-        //   products
-        //     .filter(
-        //       (item) =>
-        //         item.name.toLowerCase().includes(searchQuery.toLowerCase()) &&
-        //         item.price <= amt &&
-        //         (selectedFilters.length === 0 ||
-        //           selectedFilters.includes(item.category))
-        //     )
-        //     .map((item) => <ProductItem item={item} key={item.id} />)
-        products.map((item) => <ProductItem item={item} key={item.id} />)
+          products
+            .filter(
+              (item) =>
+                item.name.toLowerCase().includes(searchQuery.toLowerCase()) &&
+                item.price <= amt &&
+                (selectedFilters.length === 0 ||
+                  selectedFilters.includes(item.category))
+            )
+            .map((item) => <ProductItem item={item} key={item.id} />)
+        //products.map((item) => <ProductItem item={item} key={item.id} />)
         )}
+        </div>
       </div>
     </>
     )
