@@ -11,7 +11,7 @@ function App() {
   return (
     <>
       <CustomItemContext>
-        <BrowserRouter basename="/BusyBuySrikanth">
+        <BrowserRouter>
           <Navbar/>
           <Routes>
             <Route path="/" element = {<Home/>}/>
