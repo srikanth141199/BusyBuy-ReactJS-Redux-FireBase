@@ -12,6 +12,7 @@ function CustomItemContext({children}){
     const [email, setEmail]= useState("");
     const [password, setPassword] = useState("");
     const [signIn, setSignIn] = useState(false);
+    const [amt, setAmt] = useState(5000);
 
     const handleSignin = ()=>{
         setSignIn(false);
@@ -22,7 +23,8 @@ function CustomItemContext({children}){
             email, setEmail,
             password, setPassword,
             signIn, setSignIn,
-            handleSignin
+            handleSignin,
+            amt, setAmt
         }}>
             {children}
         </ItemContext.Provider>

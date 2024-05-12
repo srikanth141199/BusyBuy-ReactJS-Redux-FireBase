@@ -19,14 +19,14 @@ function Navbar(){
                 <h3>BusyBusy</h3>
                 <div className="right">
                     <img src={house} alt="home" className='icon-style' />
-                    <NavLink to="/" style={({ isActive }) => isActive ? { color: "blue" } : { color: "black" }}>
+                    <NavLink to="/" style={({ isActive }) => isActive ? { color: "#41cdece3" } : { color: "black" }}>
                         <span>Home</span>
                     </NavLink>
 
                     {signIn && (
                         <>
                             <img src={order} alt="cart" className='icon-style' />
-                            <NavLink to="/myorder" style={({ isActive }) => isActive ? { color: "blue" } : { color: "black" }}>
+                            <NavLink to="/myorder" style={({ isActive }) => isActive ? { color: "#41cdece3" } : { color: "black" }}>
                                 <span>Myorder</span>
                             </NavLink>
                         </>
@@ -35,14 +35,14 @@ function Navbar(){
                     {signIn && (
                         <>
                             <img src={cart} alt="cart" className='icon-style' />
-                            <NavLink to="/cart" style={({ isActive }) => isActive ? { color: "blue" } : { color: "black" }}>
+                            <NavLink to="/cart" style={({ isActive }) => isActive ? { color: "#41cdece3" } : { color: "black" }}>
                                 <span>Cart</span>
                             </NavLink>
                         </>
                     )}
 
                     <img src={login} alt="signin" className='icon-style' />
-                    <NavLink to="/signin" style={({ isActive }) => isActive ? { color: "blue" } : { color: "black" }}>
+                    <NavLink to="/signin" style={({ isActive }) => isActive ? { color: "#41cdece3" } : { color: "black" }}>
                         <span onClick={handleSignin}>{signIn ? "Log Out" : "Sign In"}</span>
                     </NavLink>
                 </div>
