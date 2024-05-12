@@ -1,0 +1,58 @@
+.myorder {
+    
+    h1 {
+        text-align: center;
+    }
+
+    .orderdetails {
+       
+        text-align: center;
+        margin-top: 2rem;
+
+        h2 {
+            color: #224957;
+            font-size: 1.25em;
+            font-weight: 700;
+        }
+
+        table {
+            border: none;
+            margin: 0 auto 4rem;
+            position: relative;
+            width: 80%;
+        }
+    }
+}
+.noorder{
+    font-size: 3rem;
+    font-weight: 700;
+    color: #fb813e;;
+}
+
+.table-container {
+    background-color: #d7ecf0a6;
+    padding: 2rem;
+    border-radius: 8px;
+    margin: 2rem auto; 
+    width: 60%;
+    max-width: 800px;
+    box-sizing: border-box;
+}
+
+
+.table-container table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.table-container th,
+.table-container td {
+    padding: 0.5rem;
+    border-bottom: 1px solid #ddd;
+    text-align: center;
+}
+
+.table-container th {
+    background-color: #e0e0e0;
+    font-weight: bold;
+}

@@ -4,6 +4,8 @@
         "firestore",
         "handlepurchase",
         "myorder",
+        "noorder",
+        "orderdetails",
         "Pacman",
         "purchasebtn",
         "searchinput",
