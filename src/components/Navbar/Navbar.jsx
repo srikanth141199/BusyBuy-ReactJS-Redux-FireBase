@@ -2,7 +2,7 @@ import { NavLink, Outlet } from "react-router-dom";
 import { useValue } from "../../Context";
 import "./Navbar.css"
 import house from "../../assets/Navbar/house.png"
-import order1 from "../../assets/Navbar/order (1).png"
+//import order1 from "../../assets/Navbar/order (1).png"
 import order from "../../assets/Navbar/order.png"
 import cart from "../../assets/Navbar/shopping-cart.png"
 import login from "../../assets/Navbar/account-login.png"

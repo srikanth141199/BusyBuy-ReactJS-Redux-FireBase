@@ -21,7 +21,8 @@ function CustomItemContext({children}){
         <ItemContext.Provider value = {{
             email, setEmail,
             password, setPassword,
-            signIn, setSignIn
+            signIn, setSignIn,
+            handleSignin
         }}>
             {children}
         </ItemContext.Provider>
