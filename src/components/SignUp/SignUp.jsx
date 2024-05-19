@@ -1,9 +1,8 @@
 import { useState } from "react"
 import "./SignUp.css"
-import { createUserWithEmailAndPassword, getAuth, updateProfile } from "firebase/auth";
-import { db} from "../../firebaseInit";
-import { addDoc, collection } from "firebase/firestore";
 import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { signUpThunk } from "../../redux/Reducers/authReducer";
 
 
 const SignUp = () => {
@@ -11,29 +10,13 @@ const SignUp = () => {
     const [password, setPassword] = useState("");
     const [name, setName] = useState("");
 
-    const auth = getAuth();
     const navigate = useNavigate();
+    const dispatch = useDispatch()
 
     const handleSubmit = async (evt) => {
         evt.preventDefault();
-        try {
-            const userDetails = await createUserWithEmailAndPassword(auth, email, password);
-            const user = userDetails.user;
-
-            await updateProfile(user, {
-                displayName : name
-            })
-
-            await addDoc(collection(db, 'user'), {
-                name, email
-            })
-
-            console.log('User signed up successfully!');
-            console.log(user);
-            navigate("/signIn")
-        } catch (error) {
-            console.log(error)
-        }
+        dispatch(signUpThunk({name, email, password}))
+        navigate("/signIn")
     };
 
     return (
