@@ -1,28 +1,32 @@
 import { Link, useNavigate } from "react-router-dom";
-import { useValue } from "../../Context";
+//import { useValue } from "../../Context";
 import { useState } from "react";
 import { sendPasswordResetEmail, signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../../firebaseInit";
 import { toast } from 'react-toastify';
+import { useDispatch, useSelector } from "react-redux";
+import { authSelector, signInThunk, userLoggedIn } from "../../redux/Reducers/authReducer";
 
 
 export default function SignIn() {
 
-    const {email, setEmail, password, setPassword, setSignIn} = useValue();
+    //const {email, setEmail, password, setPassword, setSignIn} = useValue();
     const [resetEmail, setResetEmail] = useState('');
     const [resetPasswordSent, setResetPasswordSent] = useState(false);
 
-    const navigate = useNavigate();
+    //const {isLoggedIn} = useSelector(authSelector);
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+    const dispatch = useDispatch();
 
-    const handleSubmit = async (evt) =>{
+    const navigate = useNavigate();
+    dispatch(userLoggedIn(false));
+
+    const handleSubmit = async (evt) => {
         evt.preventDefault();
         try {
-            await signInWithEmailAndPassword(auth, email, password);
-            setSignIn(true);
-
-            toast.success("SignIn is Successful");
-            navigate("/");
-            
+            dispatch(signInThunk({ email, password, navigate }));
+            dispatch(userLoggedIn(true));
         } catch (error) {
             console.log(error);
         }

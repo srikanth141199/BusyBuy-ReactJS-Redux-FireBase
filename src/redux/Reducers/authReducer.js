@@ -1,9 +1,12 @@
 import {  createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { createUserWithEmailAndPassword, getAuth, updateProfile } from "firebase/auth";
+import { createUserWithEmailAndPassword, getAuth, signInWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { addDoc, collection } from "firebase/firestore";
 import { db} from "../../firebaseInit";
+import { toast } from 'react-toastify';
 
 const auth = getAuth();
+
+
 
 const initialState = {
     isLoggedIn : false
@@ -29,6 +32,22 @@ export const signUpThunk = createAsyncThunk("auth/signup", async ({ name,email, 
         console.log(error)
     }
 })
+
+export const signInThunk = createAsyncThunk("auth/signIn", async ({ email, password, navigate }, { dispatch, rejectWithValue }) => {
+    try {
+        const userCredentials = await signInWithEmailAndPassword(auth, email, password);
+        dispatch(userLoggedIn(true));
+
+        toast.success("SignIn is Successful");
+        navigate("/");
+
+        return userCredentials.user;
+    } catch (error) {
+        console.log(error);
+        toast.error("SignIn failed: " + error.message);
+        return rejectWithValue(error.message);
+    }
+});
 
 const authSlice = createSlice({
     name : "auth",

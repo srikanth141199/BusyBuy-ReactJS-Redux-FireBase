@@ -46,7 +46,8 @@ function Navbar(){
 
                     <img src={login} alt="signin" className='icon-style' />
                     <NavLink to="/signin" style={({ isActive }) => isActive ? { color: "#41cdece3" } : { color: "black" }}>
-                        <span onClick={dispatch(userLoggedIn(true))}>{isLoggedIn ? "Log Out" : "Sign In"}</span>
+                        {/* <span onClick={dispatch(userLoggedIn(false))}>{isLoggedIn ? "Log Out" : "Sign In"}</span> */}
+                        <span >{isLoggedIn ? "Log Out" : "Sign In"}</span>
                     </NavLink>
                 </div>
             </div>
