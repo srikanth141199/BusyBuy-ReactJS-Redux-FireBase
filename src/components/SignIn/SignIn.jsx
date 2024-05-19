@@ -1,11 +1,11 @@
 import { Link, useNavigate } from "react-router-dom";
 //import { useValue } from "../../Context";
 import { useState } from "react";
-import { sendPasswordResetEmail, signInWithEmailAndPassword } from "firebase/auth";
+import { sendPasswordResetEmail } from "firebase/auth";
 import { auth } from "../../firebaseInit";
 import { toast } from 'react-toastify';
-import { useDispatch, useSelector } from "react-redux";
-import { authSelector, signInThunk, userLoggedIn } from "../../redux/Reducers/authReducer";
+import { useDispatch } from "react-redux";
+import {  signInThunk, userLoggedIn } from "../../redux/Reducers/authReducer";
 
 
 export default function SignIn() {

@@ -5,15 +5,14 @@ import house from "../../assets/Navbar/house.png"
 import order from "../../assets/Navbar/order.png"
 import cart from "../../assets/Navbar/shopping-cart.png"
 import login from "../../assets/Navbar/account-login.png"
-import { useDispatch, useSelector } from "react-redux";
-import { authSelector, userLoggedIn } from "../../redux/Reducers/authReducer";
+import {  useSelector } from "react-redux";
+import { authSelector } from "../../redux/Reducers/authReducer";
 
 function Navbar(){
 
     //const {signIn, handleSignin} = useValue();
 
     const {isLoggedIn} = useSelector(authSelector)
-    const dispatch = useDispatch();
 
 
     return(

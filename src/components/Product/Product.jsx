@@ -4,15 +4,17 @@ import { db } from "../../firebaseInit";
 import ProductItem from "../ProductItem/ProductItem";
 import Aside from "../Aside/Aside";
 import { PacmanLoader } from "react-spinners";
-import { useValue } from "../../Context";
+//import { useValue } from "../../Context";
 import "./Product.css"
+import { useSelector } from "react-redux";
+import { productSelecter } from "../../redux/Reducers/poductReducer";
 
 export default function Product(){
 
     const [products, setProducts] = useState([]);
     const [loading, setLoading] = useState(true);
     const [searchQuery, setSearchQuery] = useState('');
-    const {amt} = useValue();
+    const {amt} = useSelector(productSelecter);
     const [selectedFilters, setSelectedFilters] = useState([]);
 
     useEffect(() => {
@@ -68,23 +70,26 @@ export default function Product(){
         <Aside applyFilters={applyFilters} />
         <div className="leftMargin">
 
-        
-        {loading ? ( 
-          <div className="spinner">
-          <PacmanLoader color="#41cdece3"  size={100} loading = {loading}/>
+          <div className="productContainer">
+
+            {loading ? ( 
+              <div className="spinner">
+              <PacmanLoader color="#41cdece3"  size={100} loading = {loading}/>
+              </div>
+            ) : (
+              products
+                .filter(
+                  (item) =>
+                    item.name.toLowerCase().includes(searchQuery.toLowerCase()) &&
+                    item.price <= amt &&
+                    (selectedFilters.length === 0 ||
+                      selectedFilters.includes(item.category))
+                )
+                .map((item) => <ProductItem item={item} key={item.id} />)
+            )}
           </div>
-        ) : (
-          products
-            .filter(
-              (item) =>
-                item.name.toLowerCase().includes(searchQuery.toLowerCase()) &&
-                item.price <= amt &&
-                (selectedFilters.length === 0 ||
-                  selectedFilters.includes(item.category))
-            )
-            .map((item) => <ProductItem item={item} key={item.id} />)
-        //products.map((item) => <ProductItem item={item} key={item.id} />)
-        )}
+
+        
         </div>
       </div>
     </>

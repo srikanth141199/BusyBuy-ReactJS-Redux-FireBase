@@ -14,8 +14,7 @@ export default function Home() {
     }, [])
     return (
         <>
-        <p>Welcome Home</p>
-            {/* {loading ? (
+            {loading ? (
                 <div className="spinner">
                     <PacmanLoader color="#41cdece3"  size={100} loading = {loading}/>
                 </div>
@@ -23,7 +22,7 @@ export default function Home() {
                 <div className="home">
                     <Product />
                 </div>
-            )} */}
+            )}
 
         </>
     )

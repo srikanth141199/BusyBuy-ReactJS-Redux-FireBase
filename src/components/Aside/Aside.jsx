@@ -1,11 +1,15 @@
 import { useEffect, useState } from "react";
-import { useValue } from "../../Context";
+//import { useValue } from "../../Context";
 import "./Aside.css"
+import { useDispatch, useSelector } from "react-redux";
+import { productSelecter, updateAmount } from "../../redux/Reducers/poductReducer";
 
 export default function Aside({ applyFilters }) {
 
-    const { amt, setAmt } = useValue();
+    //const { amt, setAmt } = useValue();
+    const {amt} = useSelector(productSelecter)
     const [selectedFilters, setSelectedFilters] = useState([]);
+    const dispatch = useDispatch();
 
     const handleFilterChange = (event) => {
         const { name, checked } = event.target;
@@ -38,7 +42,8 @@ export default function Aside({ applyFilters }) {
                         max={100000}
                         step={100}
                         value={amt}
-                        onChange={(evt) => setAmt(evt.target.value)}
+                        // onChange={(evt) => setAmt(evt.target.value)}
+                        onChange={(evt) => dispatch(updateAmount(evt.target.value))}
                     />
                     <h2>Category</h2>
                     <div className="category">

@@ -4,15 +4,22 @@ import { addDoc, collection } from "firebase/firestore";
 import { db } from "../../firebaseInit";
 import { toast } from "react-toastify";
 import "./ProductItems.css"
+import { useSelector } from "react-redux";
+import { authSelector } from "../../redux/Reducers/authReducer";
+import { productSelecter, updateCartItems, updateTotalAmount } from "../../redux/Reducers/poductReducer";
+import { useDispatch } from "react-redux";
 
 export default function ProductItem({ item }) {
 
-    const { signIn, cartItems, setCartItems, totalAmt, setTotalAmt } = useValue();
+    // const {  cartItems, setCartItems, totalAmt, setTotalAmt } = useValue();
+    const {isLoggedIn} = useSelector(authSelector);
+    const {cartItems, totalAmt} = useSelector(productSelecter)
     const navigate = useNavigate();
     console.log("item : ", item);
+    const dispatch = useDispatch();
 
     const handleAddToCart = async()=>{
-        if(signIn){
+        if(isLoggedIn){
 
             const itemCart = cartItems.find((cartItem) => item.id === cartItem.id );
 
@@ -22,12 +29,17 @@ export default function ProductItem({ item }) {
                     cartItem.id === item.id ? { ...cartItem, quantity: cartItem.quantity + 1 } : cartItem
                     
                   );
-                  setCartItems(updatedCartItems);
-                  setTotalAmt(totalAmt + item.price);
+                //   setCartItems(updatedCartItems);
+                //   setTotalAmt(totalAmt + item.price);
+                  dispatch(updateCartItems(updatedCartItems));
+                  dispatch(updateTotalAmount(item.price))
             }
             else{
-                setCartItems([...cartItems, {...item, quantity : 1}]);
-                setTotalAmt(totalAmt + item.price);
+                //setCartItems([...cartItems, {...item, quantity : 1}]);
+                //setTotalAmt(totalAmt + item.price);
+                dispatch(updateCartItems([...cartItems, {...item, quantity : 1}]));
+                dispatch(updateTotalAmount(item.price))
+
             }
 
             //adding cart details in DB

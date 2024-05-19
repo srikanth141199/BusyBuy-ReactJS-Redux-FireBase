@@ -9,6 +9,7 @@
     transition: all .25s ease-in-out;
     cursor: pointer;
     width: 200px;
+    margin: 2rem;
     
 
     img {

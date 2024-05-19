@@ -35,3 +35,9 @@
 .leftMargin{
   margin-left: 20rem;
 }
+
+.productContainer{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
