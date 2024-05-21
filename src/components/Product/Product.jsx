@@ -47,10 +47,10 @@ export default function Product(){
       };
 
       useEffect(() => {
-        console.log("products : ", products);
+        //console.log("products : ", products);
       }, [products]);
       useEffect(() => {
-        console.log("loading : ", loading);
+        //console.log("loading : ", loading);
       }, [loading]);
       
 

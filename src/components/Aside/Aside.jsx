@@ -39,7 +39,7 @@ export default function Aside({ applyFilters }) {
                         className="filter"
                         name="price"
                         min={1}
-                        max={100000}
+                        max={150080}
                         step={100}
                         value={amt}
                         // onChange={(evt) => setAmt(evt.target.value)}

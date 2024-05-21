@@ -1,9 +1,12 @@
+import { useSelector } from "react-redux";
 import { useValue } from "../../Context"
 import "./Order.css"
+import { productSelecter } from "../../redux/Reducers/poductReducer";
 
 export default function Order() {
-    const { myorder, isMyorder } = useValue();
+    //const { myorder, isMyorder } = useValue();
     const currDate = new Date().toLocaleDateString();
+    const {myorder,isMyorder } = useSelector(productSelecter)
 
     const Amount = myorder.reduce((total, item) => total + item.price * item.quantity, 0);
 

@@ -12,11 +12,12 @@ import { useDispatch } from "react-redux";
 export default function ProductItem({ item }) {
 
     // const {  cartItems, setCartItems, totalAmt, setTotalAmt } = useValue();
-    const {isLoggedIn} = useSelector(authSelector);
+    const {isLoggedIn, userDetails} = useSelector(authSelector);
     const {cartItems, totalAmt} = useSelector(productSelecter)
     const navigate = useNavigate();
-    console.log("item : ", item);
+    //console.log("item : ", item);
     const dispatch = useDispatch();
+    //console.log("userDetails : ", userDetails);
 
     const handleAddToCart = async()=>{
         if(isLoggedIn){

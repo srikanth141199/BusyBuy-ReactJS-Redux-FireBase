@@ -64,6 +64,10 @@
     }
 }
 
+.actionButtons{
+    cursor: pointer;
+}
+
 /* Responsive Breakpoint */
 
 @media (max-width: 768px) {
