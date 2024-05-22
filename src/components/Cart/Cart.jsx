@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-import { useValue } from "../../Context"
 import CartItem from "../CartItem/CartItem";
 import "./Cart.css"
 import { useDispatch, useSelector } from "react-redux";

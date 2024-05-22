@@ -7,11 +7,15 @@
         "noorder",
         "orderdetails",
         "Pacman",
+        "poduct",
+        "productimg",
         "purchasebtn",
+        "reduxjs",
         "searchinput",
         "signin",
         "signingbtn",
         "signininput",
+        "toastify",
         "womens"
     ]
 }

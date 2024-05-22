@@ -1,5 +1,4 @@
 import { useNavigate } from "react-router-dom";
-import { useValue } from "../../Context";
 import { addDoc, collection } from "firebase/firestore";
 import { db } from "../../firebaseInit";
 import { toast } from "react-toastify";
@@ -12,8 +11,8 @@ import { useDispatch } from "react-redux";
 export default function ProductItem({ item }) {
 
     // const {  cartItems, setCartItems, totalAmt, setTotalAmt } = useValue();
-    const {isLoggedIn, userDetails} = useSelector(authSelector);
-    const {cartItems, totalAmt} = useSelector(productSelecter)
+    const {isLoggedIn} = useSelector(authSelector);
+    const {cartItems} = useSelector(productSelecter)
     const navigate = useNavigate();
     //console.log("item : ", item);
     const dispatch = useDispatch();

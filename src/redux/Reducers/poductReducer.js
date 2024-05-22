@@ -1,5 +1,4 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { useSelector } from "react-redux";
 import {  authSelector } from "./authReducer";
 
 const initialState = {
@@ -36,7 +35,7 @@ export const increaseQuantityThunk = createAsyncThunk("product/increaseQuantity"
 })
 
 
-export const decreaseQuantityThunk = createAsyncThunk("product/decreaseQuantity", async({id, price, cartItems}, { dispatch, rejectWithValue }) => {
+export const decreaseQuantityThunk = createAsyncThunk("product/decreaseQuantity", async({id, price, cartItems}) => {
     const ind = cartItems.findIndex((item) => item.id === id);
 
     if(ind !== -1){
@@ -56,7 +55,7 @@ export const decreaseQuantityThunk = createAsyncThunk("product/decreaseQuantity"
     }
 })
 
-export const RemoveCartThunk = createAsyncThunk("product/RemoveCart", async({id, price, name, cartItems}, { dispatch, rejectWithValue }) =>{
+export const RemoveCartThunk = createAsyncThunk("product/RemoveCart", async({id, price, cartItems}) =>{
     const updatedCartItems = cartItems.filter((cartItem) => cartItem.id !== id);
     //setCartItems(updatedCartItems);
     //setTotalAmt(totalAmt - price)
